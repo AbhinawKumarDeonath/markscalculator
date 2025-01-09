@@ -18,16 +18,16 @@ const InputPage = ({ addResult }) => {
       .filter(key => key.startsWith('subject'))
       .reduce((sum, key) => sum + parseInt(formData[key] || 0), 0);
 
-    if (obtained > 500) {
-      alert('Total marks cannot exceed 500');
+    if (obtained > 450) {
+      alert('Total marks cannot exceed 450');
       return;
     }
 
-    const percentage = (obtained / 500) * 100;
+    const percentage = (obtained / 450) * 100;
     addResult({ 
       rollNo: formData.rollNo,
       obtained: obtained.toString(),
-      maximum: '500',
+      maximum: '450',
       percentage,
       subjects: {
         subject1: formData.subject1,
@@ -80,7 +80,7 @@ const InputPage = ({ addResult }) => {
           </div>
         ))}
         <div className="p-4 bg-gray-100 rounded">
-          <p className="font-bold">Total Marks: {totalMarks}/500</p>
+          <p className="font-bold">Total Marks: {totalMarks}/450</p>
         </div>
         <button 
           type="submit" 
