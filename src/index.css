@@ -45,4 +45,23 @@ th {
 }
 
 
+.navlink-a
+{
+
+  margin: 10px;
+    padding: 10px;
+    background-color: #51abf5;
+    color: white;
+    border: none;
+    cursor: pointer;
+
+}
+
+
+.navlink-div{
+  display: flex;
+      align-items: center;
+      justify-content: center;
+}
+
 

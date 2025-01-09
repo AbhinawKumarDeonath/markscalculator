@@ -163,9 +163,9 @@ const App = () => {
   return (
     <BrowserRouter>
       <nav className="bg-gray-800 p-4">
-        <div className="flex space-x-4">
-          <Link to="/" className="text-white hover:text-gray-300">Input</Link>
-          <Link to="/results" className="text-white hover:text-gray-300">Results</Link>
+        <div className="flex space-x-4 navlink-div">
+          <Link to="/" className="text-white hover:text-gray-300 p-4 navlink-a">Input</Link>
+          <Link to="/results" className="text-white hover:text-gray-300 p-4 navlink-a">Results</Link>
         </div>
       </nav>
       <Routes>
