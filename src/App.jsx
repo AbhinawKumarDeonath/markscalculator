@@ -2,20 +2,55 @@ import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route, Link, useNavigate } from 'react-router-dom';
 
 const InputPage = ({ addResult }) => {
-  const [formData, setFormData] = useState({ rollNo: '', obtained: '', maximum: '500' });
+  const [formData, setFormData] = useState({
+    rollNo: '',
+    subject1: '',
+    subject2: '',
+    subject3: '',
+    subject4: '',
+    subject5: '',
+  });
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (parseInt(formData.obtained) > 500) {
-      alert('Obtained marks cannot exceed 500');
+    const obtained = Object.keys(formData)
+      .filter(key => key.startsWith('subject'))
+      .reduce((sum, key) => sum + parseInt(formData[key] || 0), 0);
+
+    if (obtained > 500) {
+      alert('Total marks cannot exceed 500');
       return;
     }
-    const percentage = (parseInt(formData.obtained) / 500) * 100;
-    addResult({ ...formData, maximum: '500', percentage });
-    setFormData({ rollNo: '', obtained: '', maximum: '500' });
+
+    const percentage = (obtained / 500) * 100;
+    addResult({ 
+      rollNo: formData.rollNo,
+      obtained: obtained.toString(),
+      maximum: '500',
+      percentage,
+      subjects: {
+        subject1: formData.subject1,
+        subject2: formData.subject2,
+        subject3: formData.subject3,
+        subject4: formData.subject4,
+        subject5: formData.subject5
+      }
+    });
+    setFormData({
+      rollNo: '',
+      subject1: '',
+      subject2: '',
+      subject3: '',
+      subject4: '',
+      subject5: '',
+    });
     navigate('/results');
   };
+
+  const totalMarks = Object.keys(formData)
+    .filter(key => key.startsWith('subject'))
+    .reduce((sum, key) => sum + parseInt(formData[key] || 0), 0);
 
   return (
     <div className="p-4 max-w-md mx-auto">
@@ -31,25 +66,21 @@ const InputPage = ({ addResult }) => {
             required
           />
         </div>
-        <div>
-          <label className="block mb-1">Obtained Marks (Max 500):</label>
-          <input
-            type="number"
-            value={formData.obtained}
-            max="500"
-            onChange={(e) => setFormData({ ...formData, obtained: e.target.value })}
-            className="w-full p-2 border rounded"
-            required
-          />
-        </div>
-        <div>
-          <label className="block mb-1">Maximum Marks:</label>
-          <input
-            type="number"
-            value="450"
-            disabled
-            className="w-full p-2 border rounded bg-gray-100"
-          />
+        {['English', 'Math', 'Science', 'History', 'Geography'].map((subject, index) => (
+          <div key={subject}>
+            <label className="block mb-1">{subject} Marks (Max 100):</label>
+            <input
+              type="number"
+              max="100"
+              value={formData[`subject${index + 1}`]}
+              onChange={(e) => setFormData({ ...formData, [`subject${index + 1}`]: e.target.value })}
+              className="w-full p-2 border rounded"
+              required
+            />
+          </div>
+        ))}
+        <div className="p-4 bg-gray-100 rounded">
+          <p className="font-bold">Total Marks: {totalMarks}/500</p>
         </div>
         <button 
           type="submit" 
