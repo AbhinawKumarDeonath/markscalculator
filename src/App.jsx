@@ -68,7 +68,7 @@ const InputPage = ({ addResult }) => {
         </div>
         {['English', 'hindi', 'Sanskrit', 'Maths', 'EVS'].map((subject, index) => (
           <div key={subject}>
-            <label className="block mb-1">{subject} Marks (Max 100):</label>
+            <label className="block mb-1">{subject} Marks :</label>
             <input
               type="number"
               max="100"
