@@ -46,7 +46,7 @@ const InputPage = ({ addResult }) => {
           <label className="block mb-1">Maximum Marks:</label>
           <input
             type="number"
-            value="500"
+            value="450"
             disabled
             className="w-full p-2 border rounded bg-gray-100"
           />
