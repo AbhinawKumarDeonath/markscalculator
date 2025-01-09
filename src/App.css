@@ -1,0 +1,73 @@
+
+.app {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar {
+  display: flex;
+  justify-content: center;
+  background: #007bff;
+  padding: 10px;
+}
+
+.nav-link {
+  color: white;
+  margin: 0 15px;
+  text-decoration: none;
+}
+
+.input-page, .results-page {
+  padding: 20px;
+  text-align: center;
+}
+
+.input-form {
+  display: flex;
+  flex-direction: column;
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+.input-form input {
+  margin: 10px 0;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.input-form button {
+  padding: 10px;
+  background: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.results-table {
+  margin: 20px auto;
+  overflow-x: auto;
+  max-width: 100%;
+}
+
+.results-table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.results-table th, .results-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+}
+
+@media (max-width: 600px) {
+  .input-form {
+    width: 100%;
+    padding: 0 20px;
+  }
+
+  .results-table table {
+    font-size: 14px;
+  }
+}
