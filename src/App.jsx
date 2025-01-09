@@ -66,7 +66,7 @@ const InputPage = ({ addResult }) => {
             required
           />
         </div>
-        {['English', 'Math', 'Science', 'History', 'Geography'].map((subject, index) => (
+        {['English', 'hindi', 'Sanskrit', 'Maths', 'EVS'].map((subject, index) => (
           <div key={subject}>
             <label className="block mb-1">{subject} Marks (Max 100):</label>
             <input
