@@ -78,7 +78,7 @@ const InputPage = ({ addResult }) => {
   return (
     <div className="p-4 max-w-2xl mx-auto">
       <div className="flex justify-between items-center mb-4">
-        <h1 className="text-2xl font-bold">Enter Student Results</h1>
+        <h1 className="text-2xl font-bold">Progressive Convent School</h1>
         <button 
           onClick={addSubject}
           className="flex items-center gap-2 bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600"
