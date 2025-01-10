@@ -63,5 +63,10 @@ th {
       align-items: center;
       justify-content: center;
 }
+.box-sub {
+  background: gainsboro;
+  margin-bottom: 10px;
+  border-radius: 10px;
+}
 
 
